@@ -4,7 +4,7 @@ Building a simple Angular.js application.
 ## Getting Started  
 
 ### Prerequisites   
-You need to set up baisc node.js installation.
+You need to set up basic node.js installation.
     
 
 ### Installing
@@ -15,6 +15,13 @@ npm install –g grunt-cli
 npm install –g bower
 npm install –g generator-angular@0.9.8
 npm install -g generator-karma
+
+```
+Bower commands for get start with project
+```
+bower install angular-strap#v2.1.0 –save
+bower install lodash ––save
+
 ```
 After installation of all required packages you need to hit a command of yoman 
 ``` yo angular StockDog ```
