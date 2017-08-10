@@ -8,10 +8,15 @@
  * Controller of the stockDogApp
  */
 angular.module('stockDogApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope, $location, WatchlistService) {
+   $scope.watchlists = WatchlistService.query();
+   $scope.$watch(function () {
+        return $location.path();
+      }, function (path) {
+      if (_.includes(path, 'watchlist')) {
+              $scope.activeView = 'watchlist';
+      } else {
+              $scope.activeView = 'dashboard';
+      }
+   });
   });

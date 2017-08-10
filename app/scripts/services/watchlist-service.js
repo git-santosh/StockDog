@@ -11,15 +11,15 @@ angular.module('stockDogApp')
   .service('WatchlistService', function WatchlistService() {
     // AngularJS will instantiate a singleton by calling "new" on this function
        var loadModel = function () {
-            var model1 = {
+            var model = {
                         watchlists: localStorage['StockDog.watchlists'] ? JSON.parse(localStorage['StockDog.watchlists']) : [],
                         nextId: localStorage['StockDog.nextId'] ? parseInt(localStorage['StockDog.nextId']) : 0
             };
-             return model1;
+             return model;
        };
     var saveModel = function(){
           localStorage['StockDog.watchlists'] = JSON.stringify(Model.watchlists);
-          localStorage['StockDog.nsextId'] = Model.nextId;
+          localStorage['StockDog.nextId'] = Model.nextId;
     };
     var findById = function(listId){
           return _.find(Model.watchlists,function(watchlist){
@@ -35,11 +35,14 @@ angular.module('stockDogApp')
          }
    };
    this.save = function (watchlist) {
+         console.log('model nextId'+Model.nextId);
+        
          var watchListObject = {
-            id :  Model.nextId++,
+            id : Model.nextId++,
             name : watchlist.name,
             description : watchlist.description
          };
+         console.log('Model2 '+watchListObject.id)
             //    watchlist.id = Model.nextId++;
          Model.watchlists.push(watchListObject);
          saveModel();
