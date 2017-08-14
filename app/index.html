@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="stockDogApp" ng-controller="MainCtrl">
+  <body ng-app="stockDogApp" ng-controller="MainCtrl" ng-init="ans = 42; ">
       <nav class="navbar navbar-inverse" role="navigation" ng-cloak>
         <div class="container-fluid">
           <div class="navbar-header">
@@ -51,7 +51,8 @@
         </div>
       </nav>
       <!-- Main container  -->
-  <div class="container-fluid" id="main">
+  <div class="container-fluid" id="main" ng-controller="myCtrl">
+      Ans : {{ans}}
       <div ng-view=""></div>
     <div class="footer">
         <p>Built with <span class="glyphicon glyphicon-heart"></span> Santosh Suryawanshi</p>
