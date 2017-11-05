@@ -24,7 +24,15 @@ bower install lodash ––save
 
 ```
 After installation of all required packages you need to hit a command of yoman 
-``` yo angular StockDog ```
+
+``` 
+yo angular StockDog
+yo angular:service Watchlist-Service
+yo angular:directive stk-Watchlist-Panel
+yo angular:route dashboard
+yo angular:route watchlist ––uri=watchlist/:listId
+yo angular:controller Main
+```
 
 ## Running the tests
 Go to your current working directory and hit ```grunt serve```
