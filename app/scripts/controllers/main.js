@@ -10,9 +10,10 @@
 angular.module('stockDogApp')
   .controller('MainCtrl', function ($scope, $location, WatchlistService) {
    $scope.ans =42;
-   $scope.$on('ping',function(){
-           console.log('pong');
-   })
+   $scope.$broadcast('ping');
+//    $scope.$on('ping',function(){
+//            console.log('pong');
+//    })
    $scope.watchlists = WatchlistService.query();
    $scope.$watch(function () {
         return $location.path();
@@ -26,5 +27,17 @@ angular.module('stockDogApp')
   });
 angular.module('stockDogApp').controller('myCtrl',function($scope){
         console.log($scope.ans);
-        $scope.$emit('ping');
+        //$scope.$emit('ping');
+        $scope.languages = [
+                { name : "English", greeting : "Hello, " },
+                { name : "Spanish", greeting : "Hola, "}
+        ];
+        $scope.greet = function(language, name) {
+                return language.greeting + " " + name;
+                };
+        $scope.username = "Juan";
+        
+        $scope.$on('ping', function() {
+                console.log('pong')
+        });
 })

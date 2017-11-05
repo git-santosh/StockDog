@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'mgcrea.ngStrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider ,$locationProvider) {
     $routeProvider
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
@@ -31,4 +31,10 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+       $locationProvider.hashPrefix('!');
+    // $locationProvider.html5Mode({
+    //     enabled: true,
+    //     requireBase: false
+
+    // });
   });
